@@ -12,7 +12,8 @@ function root_for(path){
   return path;
 }
 %>
-<div>
+
+<div id="xh">
 		<% if	(theme.imglogo.enable&&theme.imglogo.src){ %>
 			<div id="imglogo">
 				<a href="<%- config.root %>"><img src="<%- config.root %><%= theme.imglogo.src %>" alt="<%= config.title %>" title="<%= config.title %>"/></a>
@@ -57,3 +58,8 @@ function root_for(path){
 				</ul>
 			</nav>			
 </div>
+<script>
+	if (document.getElementsByTagName('title')[0].text == 'Xinghunm') {
+	  document.getElementById("xh").style.height = window.innerHeight + 'px';
+ }
+</script>
