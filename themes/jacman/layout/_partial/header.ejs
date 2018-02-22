@@ -59,7 +59,8 @@ function root_for(path){
 			</nav>			
 </div>
 <script>
-	if (document.getElementsByTagName('title')[0].text == 'Xinghunm') {
+	const isHome = document.getElementsByTagName('title')[0].text == 'Xinghunm';
+	if (isHome) {
 	  document.getElementById("xh").style.height = window.innerHeight + 'px';
   }
 	function scrollTo(element, to, duration) {
@@ -89,10 +90,12 @@ function root_for(path){
 		t--;
 		return -c/2 * (t*(t-2) - 1) + b;
 	};
-  setTimeout(function() {
-	  if (document.documentElement.scrollTop==0) {
-			scrollTo(document.documentElement, window.innerHeight, 1000)
-		}
- }, 1000)
+		if (isHome) {
+			setTimeout(function() {
+			if (document.documentElement.scrollTop==0) {
+				scrollTo(document.documentElement, window.innerHeight, 1000)
+			}}, 1000)
+	}
+
 
 </script>
