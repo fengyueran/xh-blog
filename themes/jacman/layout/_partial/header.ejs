@@ -60,9 +60,7 @@ function root_for(path){
 </div>
 <script>
 	const isHome = document.getElementsByTagName('title')[0].text == 'Xinghunm';
-	if (isHome) {
-	  document.getElementById("xh").style.height = window.innerHeight + 'px';
-  }
+
 	function scrollTo(element, to, duration) {
 			var start = element.scrollTop,
 					change = to - start,
@@ -90,12 +88,16 @@ function root_for(path){
 		t--;
 		return -c/2 * (t*(t-2) - 1) + b;
 	};
-		if (isHome) {
-			setTimeout(function() {
+
+	if (isHome) {
+	  document.getElementById("xh").style.height = window.innerHeight + 'px';
+		window.timer =	setTimeout(function() {
 			if (document.documentElement.scrollTop==0) {
 				scrollTo(document.documentElement, window.innerHeight, 1000)
 			}}, 1000)
+  } else if(window.timer) {
+		clearTimeout(window.timer);
+		window.timer = null;
 	}
-
 
 </script>
