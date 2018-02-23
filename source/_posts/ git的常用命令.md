@@ -77,22 +77,19 @@ $ git push [remote-repository-name] [branch-name]
 例: $ git push origin --delete dev
 
 // 添加远程仓库
-$ git remote add [url]
-$ git remote add pb git://github.com/paulboone/ticgit.git
+$ git remote add [repository] [url]
+$ git remote add pb git://github.com/fengyueran/test.git
 
-18）从远端仓库下载新分支与数据 - git fetch
-```objc
-//会使你与另一仓库同步，提取你本地所没有的数据，不merge
+// 拉取远端数据
+//会使你与另一仓库同步，提取你本地所没有的数据，不merge，拉取下来的数据在.git/FETCH_HEAD下
 $ git fetch 
 
-//将你的仓库与远端仓库origin同步，提取所有它独有的数据到本地分支以合并或者怎样。
+// 将你的仓库与远端仓库origin同步，提取所有它独有的数据到本地分支以合并或者怎样。
 $ git fetch origin
 
-//首先执行下面的fetch操作使用远程dev分支在本地创建local/dev分支(但不会切换到该分支)，
-如果本地不存在local/dev分支, 则会自动创建一个新的local/dev分支, 如果本地存在local/dev分支, 
-并且是`fast forward', 则自动合并两个分支, 否则, 会阻止以上操作。
-$ git fetch origin dev:local/dev
--> * [new branch]      dev        -> local/dev
+//首先执行下面的fetch操作使用远程dev分支在本地创建localDev分支(但不会切换到该分支)，如果本地不存在localDev分支, 则会自动创建一个新的localDev分支, 如果本地存在localDev分支, 并且是`fast forward', 则自动合并两个分支, 否则, 会阻止以上操作。
+$ git fetch origin dev:localDev
+-> * [new branch]      dev        -> localDev
 
 ```
 #### 分支操作
