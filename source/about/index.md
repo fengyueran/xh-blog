@@ -4,4 +4,6 @@ type: page
 title: About me
 ---
 
-Building....
+80末程序员...
+微信:
+![](../assets/weixin.png)
