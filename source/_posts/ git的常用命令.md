@@ -1,7 +1,9 @@
 ---
 layout: post
 title: Git常用命令
-tag: Git
+category : Git
+tagline: "Supporting tagline"
+tags : [Git]
 description: Git作为一种流行的版本管理系统已经广泛应用于我们的日常开发中，在这里记录下日常遇到的关于git的常见用法，以备后续查询。
 date: 2016-6-24 23:30:09
 ---
@@ -17,8 +19,8 @@ $ git init [project-name]
 
 3）克隆远程分支，默认为master分支
 $ git clone [url] -b [branch-name] [your-folder]
-// 克隆远程dev分支
-例: $ git clone https://github.com/fengyueran/Test.git -b dev
+// 克隆远程dev分支到MyProject
+例: $ git clone https://github.com/fengyueran/Test.git -b dev MyProject
 ```
 #### 配置
 
@@ -34,7 +36,7 @@ $ git config --list
 
 2）编辑配置文件(--system/global)
 $ git config -e 
-// 编辑当前用户的配置文件
+// 编辑当前用户的配置文件, --global:适用于当前用户， --system:适用于所有用户，不带参数: 当前项目
 例: $ git config -e --global
 
 3）设置当前用户信息
@@ -74,7 +76,7 @@ $ git commit --amend -m [message]
 1）查看当前分支及其所有父类的提交历史
 $ git log 
 
-2）可以查看所有分支的所有操作记录(包括已经被删除的commit记录和 reset操作）
+2）可以查看所有分支的所有操作记录(包括已经被删除的commit记录和reset操作）
 $ git reflog
 
 3）查看变更的文件
@@ -129,8 +131,22 @@ $ git fetch origin dev:localDev
 $ git pull 
 //merge操作会生成一个新的节点，之前的提交分开显示。而rebase操作不会生成新的节点, 因而能产生一个更为整洁的提交历史
 $ git pull --rebase
-
+//假设提交线图在执行pull前是这样的：
+      C1---D1---E1  remotes/origin/master
+      /
+  A---B---C2---D2  master
+执行git pull则提交线图会变成这样：
+      C1---D1---E1  remotes/origin/master
+      /          \
+  A---B---C2---D2-F  master
+即会产生一个多余的合并历史，
+如果执行git pull --rebase则提交线图会变成这样：
+    remotes/origin/master
+                  |
+  A---B---C1---D1---C2'---D2'  master
+可以看到，应用rebase则不会有新的提交F。C2,D2删除后重新提交为C2',D2'了。
 ```
+
 #### 分支操作
 
 ```
