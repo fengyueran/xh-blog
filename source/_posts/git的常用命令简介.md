@@ -68,10 +68,13 @@ $ git clean -f
 5) 删除当前目录没有track过的文件和文件夹
 $ git clean -df
 
-6）提交暂存区到仓库区 
+6) 删除所有本地未提交的修改
+$ git checkout .
+
+7）提交暂存区到仓库区 
 $ git commit -m [message]
 
-7）追加到上一次提交 
+8）追加到上一次提交 
 $ git commit --amend -m [message]
 
 ```
