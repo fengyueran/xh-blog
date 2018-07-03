@@ -4,12 +4,14 @@ title: Git常用命令
 category : Git
 tagline: "Supporting tagline"
 tags : [Git]
-description: Git作为一种流行的版本管理系统已经广泛应用于我们的日常开发中，在这里记录下日常遇到的关于git的常见用法，以备后续查询。
 date: 2016-6-24 23:30:09
 ---
 
 git的命令很多，为了减少后续查询的时间在这里列出了平常用到的一些命令。关于这些命令我们对git需要有一个基本的认识，如下图，git分为了几个区：
-- 工作区：
+<div align=center>
+![git structure sketch](/assets/gitSketch.png)
+
+
 #### 创建代码仓库
 
 ```
