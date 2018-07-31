@@ -77,7 +77,8 @@ $ git commit -m [message]
 
 8）追加到上一次提交 
 $ git commit --amend -m [message]
-
+//修改上次提交
+例: $ git commit --amend
 ```
 #### 查看信息
 ```
@@ -137,6 +138,13 @@ $ git fetch origin dev:localDev
 7）从远程仓库提取数据并尝试合并到当前分支
 // 基本上，该命令就是在git fetch之后紧接着git merge远端分支到当前分支
 $ git pull 
+
+//当新建分支时，如果直接pull或push需要参数远程仓库名和分支名
+$ git pull origin dev
+如果想省略仓库名和分支名则需要建立追踪关系，执行如下命令
+$ git pull --set-upstream origin dev
+
+
 //merge操作会生成一个新的节点，之前的提交分开显示。而rebase操作不会生成新的节点, 因而能产生一个更为整洁的提交历史
 $ git pull --rebase
 //假设提交线图在执行pull前是这样的：
