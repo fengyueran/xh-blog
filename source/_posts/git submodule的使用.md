@@ -19,7 +19,7 @@ submodule是一个多项目管理工具，它允许将子项目以独立的git�
 ### **添加submodule**
 通常情况下，我们都有一个主项目(MainProject)，在MainProject文件夹下执行如下命令，即可添加submodule。
 ```
-$ git add submodule [url] [path]
+$ git submodule add [url] [path]
 //url为子项目远程地址或本地地址, path为子项目路径，可省略
 例: git add submodule git@github.com:fengyueran/UploaderSDK.git ./src/UploaderSDK
 ```

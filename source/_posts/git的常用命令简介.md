@@ -80,6 +80,11 @@ $ git commit --amend -m [message]
 //修改上次提交
 例: $ git commit --amend
 ```
+
+9）撤销某次提交 
+$ git revert [commit] 
+例: $ git revert fa042ce57ebbe5bb9c8db709f719cec2c58ee7ff
+```
 #### 查看信息
 ```
 1）查看当前分支及其所有父类的提交历史
