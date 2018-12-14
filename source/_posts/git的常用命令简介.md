@@ -130,7 +130,12 @@ $ git remote add [repository] [url]
 // 在远程添加名为pb的仓库
 例: $ git remote add pb git://github.com/fengyueran/test.git
 
-6) 拉取远端数据
+6）重设远程仓库
+$ git remote set-url [repository] [url]
+// 在远程添加名为pb的仓库
+例: $ git remote set-url origin git://github.com/fengyueran/test.git
+
+1) 拉取远端数据
 // 使你与另一仓库同步，提取你本地所没有的数据，不merge，拉取下来的数据在.git/FETCH_HEAD下
 $ git fetch 
 // 将你的仓库与远端仓库origin同步，提取所有它独有的数据到本地分支以合并或者怎样。
@@ -140,7 +145,7 @@ $ git fetch origin
 $ git fetch origin dev:localDev
 -> * [new branch]      dev        -> localDev
 
-7）从远程仓库提取数据并尝试合并到当前分支
+8）从远程仓库提取数据并尝试合并到当前分支
 // 基本上，该命令就是在git fetch之后紧接着git merge远端分支到当前分支
 $ git pull 
 

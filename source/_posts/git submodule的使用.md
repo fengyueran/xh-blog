@@ -132,7 +132,7 @@ Submodule 'test2sub' (git@github.com:fengyueran/test2sub.git) unregistered for p
 $ git submodule
 -> -dab52c62f52353d9967619625c28e28dc4320aef test2sub
 ```
-2) $ git rm --cached [submodule_name]
+2) $ git rm `--`cached [submodule_name]
 ```
 // 删除.gitmodules中记录的模块信息（--cached选项清除.git/modules中的缓存）
 git rm --cached test2sub

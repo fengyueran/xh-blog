@@ -46,9 +46,9 @@ xhr.onreadystatechange = () => {
 // get请求
 xhr.open( "get", "http://localhost:4000/data?page=" + encodeURTComponent(page), true);
 // post 请求
+xhr.open("POST","http://localhost:4000/data",true);
 // 必须设置提交时的内容类型，否则服务器端收不到参数 
 xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
-xhr.open("POST","http://localhost:4000/data",true);
 ```
 
 - 发送请求
@@ -67,7 +67,7 @@ xhr.open("POST","http://localhost:4000/data",true);
  - 数据较小，一般限制在1kb以下
  - 数据追加到url中，如(http://localhost:4000/data?username=xhm&&password=xhm)
  - 浏览器会缓存请求记录，可能带来安全性问题
- - 服务器端用Request.QueryString获取变量的值
+ - 服务器端用Request.query获取变量的值
 
 - post请求
  - 没有数据量限制(但理论上，因服务器的不同而异)
