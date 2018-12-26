@@ -1,0 +1,218 @@
+---
+layout: post
+title: AJAX是什么
+category : network
+tagline: "Supporting tagline"
+tags : [network]
+description: 
+date: 2016-1-01 18:10:20
+---
+
+### 基本选择器
+
+- `*`: 通配符，匹配任何元素
+  例：`* { color: red }`
+
+- `#id`: id选择器
+  例：匹配所有id属性为app的元素
+  `#app { color: red }`
+
+- `.class`: class选择器
+  匹配所有class属性为btn的元素
+  例：`.btn { color: red }`
+
+- `element`: 元素选择器
+  匹配所有div标签
+  例：`div { color: red }`
+
+优先级: `#` > `.` > `element` `*`
+
+
+### 属性选择器
+
+HTML:
+```
+  <div title="myBtn Button" lang="en-us" />
+```
+CSS 2.1
+- `[attribute]`: 匹配所有带有attribute属性的元素
+  `[title] { color: red; }`
+
+- `[attribute="x"]`: 匹配所有attribute属性为x的元素
+  `[title=myBtn] { color: red; }`
+
+- `[attribute~="x"]`: 匹配所有attribute属性具有多个空格分隔的值，其中一个值等于x的元素
+  `[title~="Button"] { color: red; }`
+
+- `[attribute|="x"]`: 匹配所有attribute属性具有连字符`-`分隔的值，其中一个值以x开头的元素
+
+  `[lang|="en"] { color: red; }`
+
+
+CSS 3
+- `[attribute^="x"]`: 匹配属性attribute的值以x开头的元素
+  `[title^=my] { color: red; }`
+
+- `[attribute$="x"]`: 匹配属性attribute的值以x结尾的元素
+  `[title$=Button] { color: red; }`
+
+- `[attribute*="x"]`: 匹配属性attribute的值包含x的元素
+    `[title*=Btn] { color: red; }`
+
+
+### 伪类选择器
+
+HTML：
+```
+<div>
+  <a lang="en" href="http://xinghunm.com" target="_blank">Xinghunm.com</a>
+</div>
+```
+
+CSS 2.1
+以下的E、F指selector匹配到的元素，其本身就是selector。
+
+- `E:first-child`: 匹配元素E当它是其父元素的第一个子元素
+  `a:first-child { color: red; }`
+
+- `E:link`: 匹配未被访问(未点击或跳转)的元素
+  `a:link { color: black; }`
+
+- `E:visited`: 匹配未被访问(未跳转)的元素
+  `a:visited { color: green; }`
+
+- `E:hover`: 匹配鼠标悬停其上的元素
+  `:hover`必须在:link和:visited之后才能看到效果。
+  `a:hover { color: blue; }`
+
+- `E:active`: 匹配鼠标按下还未抬起的元素
+  `:active`必须在`:hover`之后才能看到效果。
+  `a:active { color: red; }`
+
+- `E:focus`: 匹配获取当前焦点的元素
+  `a:focus { color: yellow; }`
+
+- `E:lang(x)`: 匹配lang属性等于x的元素
+  `a:lang(en) { color: red; }`
+
+
+CSS 3
+
+HTML：
+```
+  <div>
+      <h1>this is h1</h1>
+      <h3>first-of-type h3</h3>
+      <h3>last-of-type h3</h3>
+      <ul>
+          <li><a href="#tab1">tab1</a></li>
+          <li><a href="#tab2">tab2</a></li>
+      </ul>
+      <div id="tab1">this is tab1</div>
+      <div id="tab2">this is tab2</div>
+      <p><span>only child</span></p>
+      <p></p>
+  </div>
+```
+
+- `E:target`: URL后跟锚点#，指向文档内某个具体的元素，这个被链接的元素就是目标元素，       `E:target`选择器用于选取当前活动的目标元素
+  当我们点击列表tab1时，因为其锚点链接的元素就是id为tab1的元素，所以此时活动的目标元素就是id为tab1的div，通过div:target就可以获取此目标元素。
+  `div:target { background: red; }`
+
+- `:not(selector)`: 匹配与selector选择器描述不相符的元素
+  `div :not(div) { color: red; }`
+
+**结构性伪类**
+- `:root`: 匹配根元素，对应HTML文档就是html元素
+  `:root { color: red; }`
+
+- `E:nth-child(n)`: 匹配元素E当它是其父元素的第n(从1开始)个子元素
+  列表tab1是其父元素ul的第一个元素，因此可以匹配到列表tab1
+  `li:nth-child(1) { color: red; }`
+
+- `E:nth-last-child(n)`: 匹配元素E当它是其父元素的倒数第n(从1开始)个子元素
+  列表tab2是其父元素ul的倒数第一个子元素，因此可以匹配到列表tab2
+  `li:nth-last-child(1) { color: red; }`
+
+- `E:last-child`: 匹配元素E当它是其父元素的倒数第1个子元素
+  `li:last-child() { color: red; }`
+
+- `E:only-child`: 匹配元素E当它是其父元素的唯一一个子元素
+  `span:only-child() { color: red; }`
+
+- `E:nth-of-type(n)`: 匹配元素E当它是其父元素的第n(从1开始)个出现的与E类型相同的子元素
+  匹配`<div id="tab2">this is tab2</div>`
+  `div:nth-of-type(2) { color: red; }`
+
+- `E:nth-last-of-type(n)`: 匹配元素E当它是其父元素的倒数第n(从1开始)个出现的与E类型相同的子元素
+  匹配`<div id="tab1">this is tab1</div>`
+  `div:nth-last-of-type(2) { color: red; }`
+
+- `E:first-of-type`: 匹配元素E当它是其父元素的第1个出现的与E类型相同的元素子元素(可能有多个)
+  `h3:first-of-type { color: red; }`
+
+- `E:last-of-type`: 匹配元素E当它是其父元素的倒数第1个出现的与E类型相同的元素子元素(可能有多个)
+  `h3:last-of-type { color: red; }`
+
+- `E:only-of-type`: 匹配元素E当它是其父元素下唯一一个E类型的元素
+  `h1:only-of-type { color: red; }`
+
+- `E:empty`: 匹配元素E当没有子元素或内容时
+  `p:empty{ color: red; }`
+
+
+
+### 伪元素选择器
+
+HTML：
+```
+ <div>
+   <p>12<br>34</p>
+ </div>
+```
+
+CSS 2.1
+
+- `::first-line`: 匹配元素的第一行
+  `p::first-line { color: red; }`
+
+- `::first-letter`: 匹配元素的第一个字母
+  `p::first-letter { color: red; }`
+
+- `::before`: 在元素前通过content属性插入内容
+  `p::before {  content: "*"; }`
+
+- `::after`: 在元素后通过content属性插入内容
+  `p::after {  content: "*"; }`
+
+
+### 多级选择器
+
+HTML:
+```
+  <div id="div1">
+      <div id="div2">
+        <h1>this is dev2 > h1</h1>
+        <h2>this is dev2 > h2</h2>
+      </div>
+       <div id="div3">this is dev3</div>
+       <div id="div4">this is dev4</div>
+       <h1>this is div1 > h1</h1>
+    </div>
+```
+- `E, F`: 多元素选择器，同时匹配E元素和F元素
+  `h1, h2 { color: red; }`
+
+- `E > F`: 子元素选择器，匹配E元素的子元素F
+  `#div2 > h1 { color: red; }`
+
+- `E  F`: 后代元素选择器，匹配E元素的后代元素F
+  `#div1 h2 { color: red; }`
+
+- `E + F`: 相邻元素选择器，匹配所有紧随E元素之后的F元素
+  匹配div3
+  `#div2 + div { color: red; }`
+
+- `E ~ F`: 同级元素选择器，匹配所有E元素之后的同级元素F
+  匹配div3，div4
+  `#div2 ~ div { color: red; }`
