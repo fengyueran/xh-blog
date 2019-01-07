@@ -1,11 +1,11 @@
 ---
 layout: post
-title: AJAX是什么
-category : network
+title: css选择器
+category : css
 tagline: "Supporting tagline"
-tags : [network]
+tags : [css]
 description: 
-date: 2016-1-01 18:10:20
+date: 2016-5-05 18:10:20
 ---
 
 ### 基本选择器
