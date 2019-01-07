@@ -115,8 +115,12 @@ footer
 
 
 .copyright
-  font-family font-default
-  font-size 0.7em
+  if ShowCustomFont
+    font-smoothing()
+    font-family font-custom-family
+  else
+    font-family font-default
+    font-size 0.6em
   width 100%
   color color-white
   text-align center
