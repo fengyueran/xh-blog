@@ -5,7 +5,7 @@ title: JS常用方法
 category : js
 tagline: "Supporting tagline"
 tags : [js]
-description: 
+description: js中方法很多，在这里记录下自己容易忘记的一些较为重要的方法和技巧
 date: 2016-6-05 18:10:20
 ---
 

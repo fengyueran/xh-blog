@@ -4,7 +4,7 @@ title: css选择器
 category : css
 tagline: "Supporting tagline"
 tags : [css]
-description: 
+description: css选择器用法较多，不常用的选择器容易遗忘，于是在这里整理出css选择器的基本用法，以备查用。
 date: 2016-5-05 18:10:20
 ---
 
