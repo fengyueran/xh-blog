@@ -1,7 +1,5 @@
 node_modules
 public
 package-lock.json
-db_BACKUP_45264.json
-db_BASE_45264.json
-db_LOCAL_45264.json
-db_REMOTE_45264.json
+db.json
+
