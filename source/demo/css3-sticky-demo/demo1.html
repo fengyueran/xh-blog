@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>React App</title>
+    <style>
+      #root {
+        overflow: auto;
+        max-height: 500px;
+        border: 1px solid;
+      }
+      nav {
+        height: 50px;
+        background: deepskyblue;
+        position: sticky;
+        top: 0;
+      }
+      article {
+        height: 500px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <h1>标题</h1>
+      <nav>导航栏</nav>
+      <article>
+          CSS postion定位有哪几种情况
+          <br />
+          1. static
+            <br />
+            static定位是默认的定位方式，元素出现在正常的文档流中，会忽略left、top、right、bottom以及z-index。
+            <br />
+          2. absolute
+            <br />
+            absolute定位即绝对定位，相对于除static定位元素的第一个父类元素进行定位，元素的位置通过left、top、right以及bottom 属性进行设置。
+            <br />
+          3. fixed
+            <br />
+            fixed定位即固定定位，类似于绝对定位，但它是相对于浏览器窗口进行定位的，元素的位置通过left、top、right以及bottom 属性进行设置。
+            <br />
+          4. relative
+            <br />
+            relative定位即相对定位，相对的参考位置为元素自身所在文档流的位置(不管这个元素是否脱离正常文档流)，通过left、top、right以及bottom属性进行设置。相对定位虽然脱离了文档流，但计算其他元素在文档流中的位置时仍会以该元素正常的文档流位置进行计算，就好像元素还在原来的位置。
+            <br />
+          5. sticky
+            <br />
+            sticky定位即粘性定位，可以简单地认为是相对定位和固定定位的混合，元素在跨越特定阈值前为相对定位，之后为固定定位。
+            <br />
+          6. inherit
+            <br />
+            继承父类的postion值，不会继承其left、top、right及bottom值
+      </article>
+    </div>
+  </body>
+</html>
