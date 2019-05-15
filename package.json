@@ -6,7 +6,8 @@
     "version": "3.8.0"
   },
   "scripts": {
-    "publish": "hexo g && hexo d"
+    "publish": "hexo g && hexo d",
+    "g": "babel-node utils/generate-html.js"
   },
   "dependencies": {
     "hexo": "^3.2.0",
@@ -19,9 +20,12 @@
     "hexo-renderer-marked": "^0.3.0",
     "hexo-renderer-stylus": "^0.3.1",
     "hexo-server": "^0.2.0",
-    "react": "^16.2.0"
+    "react": "^16.2.0",
+    "showdown": "^1.9.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
     "hexo-generator-feed": "^1.2.2"
   }
 }
