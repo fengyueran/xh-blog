@@ -10,6 +10,7 @@
     "g": "babel-node utils/generate-html.js"
   },
   "dependencies": {
+    "@xinghunm/walk-dir": "^0.0.4",
     "hexo": "^3.2.0",
     "hexo-deployer-git": "^0.3.1",
     "hexo-generator-archive": "^0.1.4",
